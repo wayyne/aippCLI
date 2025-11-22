@@ -1,4 +1,4 @@
-# AiPP CLI
+# Artifical Intelligence Protein Profiling: Command-line Inference Interface
 
 Command-line interface for running AiPP residue-level predictions
 (SSBind, LigBind, ZNBind, LigCys) on protein sequences using ESM-C
@@ -16,8 +16,7 @@ pipelines (e.g. Zenodo-backed archives).
 
 - env/wizard.sh
   Simple installation wizard that creates a Python virtual environment,
-  installs dependencies, and is the intended place to add automated
-  weight downloads from Zenodo.
+  installs dependencies, and downloads pretrained weights from Zenodo.
 
 - env/wts/
   Default location for model weight directories. The CLI expects
@@ -27,6 +26,8 @@ pipelines (e.g. Zenodo-backed archives).
 
 ## Requirements
 
+- NVIDIA GPU with >= 24GB VRAM (e.g. RTX 4090)
+- 128 GB system memory
 - Python 3.10 or newer
 - POSIX-like environment (Linux / macOS)
 - Packages:
@@ -34,11 +35,12 @@ pipelines (e.g. Zenodo-backed archives).
   - torch
   - esm
   - tqdm
-  - (optional) httpx, colorama if you extend the tooling
+  - httpx
+  - colorama
 
 You can install these manually:
 
-    pip install numpy torch esm tqdm
+    pip install numpy torch esm tqdm colorama httpx
 
 or use the provided wizard.
 
@@ -48,7 +50,7 @@ or use the provided wizard.
 
 Clone the repository:
 
-    git clone https://github.com/<org-or-user>/aippCLI.git
+    git clone https://github.com/wayyne/aippCLI.git
     cd aippCLI
 
 Run the installation wizard:
