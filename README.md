@@ -1,4 +1,4 @@
-# Command-line Inference Interface for Artifical Intelligence Protein Profiling
+# Command-line Inference Interface for Cysteine-Directed Artifical Intelligence Protein Profiling
 
 Command-line interface for running AiPP residue-level predictions
 (SSBind, LigBind, ZNBind, LigCys) on protein sequences using ESM-C
