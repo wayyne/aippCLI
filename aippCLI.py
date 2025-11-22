@@ -25,7 +25,7 @@ from tqdm.auto import tqdm
 HERE = os.path.dirname(os.path.abspath(__file__))
 DEFAULT_WTS_ROOT = os.environ.get(
     "AIPP_WTS_DIR",
-    os.path.join(HERE, "wts"),
+    os.path.join(HERE, "env/wts"),
 )
 
 TOKEN_FILE = os.environ.get(
@@ -638,7 +638,8 @@ def main():
     cmd_str = " ".join(
         shlex.quote(a) for a in sys.argv
     )
-    print(cmd_str)
+    print("    "+cmd_str+'''\n
+     ------------------------------------------------''')
 
     if not args.sequence and not args.fasta:
         raise SystemExit("You must provide either --sequence or --fasta")
@@ -834,7 +835,7 @@ def main():
             )
 
     def run_one(seq_id: str, seq: str):
-        print(f"\n=== {seq_id} ===")
+        #print(f"\n=== {seq_id} ===")
         seq_u = seq.strip().upper()
 
         # task_name -> {pos: prob}
@@ -1079,6 +1080,8 @@ def main():
         out_fh.close()
         print(f"output written to: {args.out}")
 
+    print("")
+
 
 def splash():
     print(
@@ -1092,7 +1095,9 @@ def splash():
      o88o     o8888o o888o o888o        o888o        
 
 
-           Command-line Inference Interface
+          < command-line inference interface >
+
+            Written by: Guy W. Dayhoff, Ph.D.
 
      ------------------------------------------------
         """
